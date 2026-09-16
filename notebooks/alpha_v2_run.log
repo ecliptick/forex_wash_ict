@@ -1,0 +1,74 @@
+Day enumeration: 0.6s, 660 Mon-Fri days
+Sampled 30 days
+Pre-loading all days...
+Pre-load: 0.5s, 30 days
+Running 420 backtests (14 configs x 30 days)...
+
+=== BASELINE ===
+
+=== BIAS_GATE ===
+  [50/420] BIAS_GATE 2025-10-21 (elapsed 9.3s, ETA 68.5s)
+
+=== NO_SUPERSEDE ===
+
+=== NO_RETEST_REQ ===
+  [100/420] NO_RETEST_REQ 2025-01-13 (elapsed 32.1s, ETA 102.9s)
+
+=== BOS_BOOST_ONLY ===
+  [150/420] BOS_BOOST_ONLY 2026-07-14 (elapsed 42.9s, ETA 77.2s)
+
+=== DROP_D_HUNT ===
+
+=== DROP_INVERTED_OFF ===
+  [200/420] DROP_INVERTED_OFF 2025-10-21 (elapsed 52.5s, ETA 57.7s)
+
+=== INV_TRADE ===
+
+=== CAND_DISPLACE ===
+  [250/420] CAND_DISPLACE 2025-01-13 (elapsed 62.5s, ETA 42.5s)
+
+=== CAND_DISP15 ===
+  [300/420] CAND_DISP15 2026-07-14 (elapsed 72.3s, ETA 28.9s)
+
+=== CAND_BODY_ONLY_INV ===
+
+=== CAND_BODY_ONLY_MIT ===
+  [350/420] CAND_BODY_ONLY_MIT 2025-10-21 (elapsed 82.1s, ETA 16.4s)
+
+=== CAND_IFVG_AGE_60 ===
+
+=== ALPHA_STACK ===
+  [400/420] ALPHA_STACK 2025-01-13 (elapsed 92.3s, ETA 4.6s)
+
+All backtests done in 96.7s (0.230s per backtest)
+Per-day CSV: C:\coding\gmma_guppy_ict\ict_tier_v2\notebooks\alpha_v2_per_day.csv
+
+Summary CSV: C:\coding\gmma_guppy_ict\ict_tier_v2\notebooks\alpha_v2_summary.csv
+
+====================================================================================================
+ALPHA V2 — PER-CONFIG SUMMARY
+====================================================================================================
+config                    trades   EV/trade    PnL/day  tr/day  fills  sigs  soft inv_tr
+----------------------------------------------------------------------------------------------------
+DROP_D_HUNT                  521 $  -0.0089 $    -0.15    17.4    521   256    56      0
+BIAS_GATE                    998 $  -0.0725 $    -2.41    33.3    998   368   715      0
+INV_TRADE                   2256 $  -0.0394 $    -2.96    75.2   2256   744  1533    289
+CAND_IFVG_AGE_60            1838 $  -0.0689 $    -4.22    61.3   1838   701  1242      0
+CAND_BODY_ONLY_INV          1963 $  -0.0671 $    -4.39    65.4   1963   744  1333      0
+NO_RETEST_REQ               1952 $  -0.0686 $    -4.46    65.1   1952   751  1380      0
+CAND_BODY_ONLY_MIT          1968 $  -0.0693 $    -4.55    65.6   1968   742  1360      0
+BOS_BOOST_ONLY              1967 $  -0.0695 $    -4.55    65.6   1967   744  1361      0
+DROP_INVERTED_OFF           1967 $  -0.0697 $    -4.57    65.6   1967   744  1360      0
+BASELINE                    1967 $  -0.0697 $    -4.57    65.6   1967   744  1360      0
+ALPHA_STACK                 1648 $  -0.0843 $    -4.63    54.9   1648   610  1105      0
+CAND_DISP15                 1727 $  -0.0863 $    -4.97    57.6   1727   637  1182      0
+CAND_DISPLACE               1675 $  -0.0980 $    -5.47    55.8   1675   603  1167      0
+NO_SUPERSEDE               18112 $  -0.1329 $   -80.26   603.7  18112  6173 15344      0
+Traceback (most recent call last):
+  File "C:\coding\gmma_guppy_ict\ict_tier_v2\src\tools\run_alpha_v2.py", line 345, in <module>
+    print(f'\nDelta-PnL vs BASELINE (${baseline_pnl:.2f} total over {len(day_data)} days):')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\seant\AppData\Local\Programs\Python\Python314\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 2: character maps to <undefined>

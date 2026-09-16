@@ -1,0 +1,4 @@
+config,tp_mult,n_days_ok,n_trades,PnL_total,PnL_per_day,EV_per_trade,t_stat,positive_days,negative_days
+SNIPER_TP22,22.0,97,828,1999.71,20.6155,2.4151,4.14,63,34
+SNIPER_TP4,4.0,97,828,389.37,4.0141,0.4702,3.28,59,38
+SNIPER_TP1,1.0,97,828,30.79,0.3174,0.0372,0.8,49,48

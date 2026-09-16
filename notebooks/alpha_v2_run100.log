@@ -1,0 +1,101 @@
+Day enumeration: 0.6s, 660 Mon-Fri days
+Sampled 100 days
+Pre-loading all days...
+Pre-load: 1.5s, 98 days
+Running 1372 backtests (14 configs x 98 days)...
+
+=== BASELINE ===
+  [50/1372] BASELINE 2025-03-12 (elapsed 8.2s, ETA 217.3s)
+
+=== BIAS_GATE ===
+  [100/1372] BIAS_GATE 2024-01-05 (elapsed 18.9s, ETA 240.1s)
+  [150/1372] BIAS_GATE 2025-03-27 (elapsed 26.7s, ETA 217.7s)
+
+=== NO_SUPERSEDE ===
+  [200/1372] NO_SUPERSEDE 2024-01-16 (elapsed 37.3s, ETA 218.7s)
+  [250/1372] NO_SUPERSEDE 2025-04-30 (elapsed 59.1s, ETA 265.2s)
+
+=== NO_RETEST_REQ ===
+  [300/1372] NO_RETEST_REQ 2024-02-05 (elapsed 90.4s, ETA 323.0s)
+  [350/1372] NO_RETEST_REQ 2025-05-30 (elapsed 99.1s, ETA 289.3s)
+
+=== BOS_BOOST_ONLY ===
+  [400/1372] BOS_BOOST_ONLY 2024-02-14 (elapsed 109.1s, ETA 265.0s)
+  [450/1372] BOS_BOOST_ONLY 2025-06-03 (elapsed 118.0s, ETA 241.8s)
+
+=== DROP_D_HUNT ===
+  [500/1372] DROP_D_HUNT 2024-02-21 (elapsed 127.8s, ETA 223.0s)
+  [550/1372] DROP_D_HUNT 2025-07-02 (elapsed 136.9s, ETA 204.5s)
+
+=== DROP_INVERTED_OFF ===
+  [600/1372] DROP_INVERTED_OFF 2024-03-13 (elapsed 146.3s, ETA 188.2s)
+  [650/1372] DROP_INVERTED_OFF 2025-07-18 (elapsed 155.4s, ETA 172.6s)
+
+=== INV_TRADE ===
+  [700/1372] INV_TRADE 2024-03-28 (elapsed 164.9s, ETA 158.3s)
+  [750/1372] INV_TRADE 2025-08-18 (elapsed 174.3s, ETA 144.5s)
+
+=== CAND_DISPLACE ===
+  [800/1372] CAND_DISPLACE 2024-04-18 (elapsed 183.9s, ETA 131.5s)
+  [850/1372] CAND_DISPLACE 2025-09-17 (elapsed 192.8s, ETA 118.4s)
+
+=== CAND_DISP15 ===
+  [900/1372] CAND_DISP15 2024-05-06 (elapsed 201.5s, ETA 105.7s)
+  [950/1372] CAND_DISP15 2025-10-13 (elapsed 210.3s, ETA 93.4s)
+
+=== CAND_BODY_ONLY_INV ===
+  [1000/1372] CAND_BODY_ONLY_INV 2024-05-16 (elapsed 219.3s, ETA 81.6s)
+  [1050/1372] CAND_BODY_ONLY_INV 2025-11-07 (elapsed 229.2s, ETA 70.3s)
+
+=== CAND_BODY_ONLY_MIT ===
+  [1100/1372] CAND_BODY_ONLY_MIT 2024-05-31 (elapsed 238.6s, ETA 59.0s)
+  [1150/1372] CAND_BODY_ONLY_MIT 2025-11-20 (elapsed 248.5s, ETA 48.0s)
+
+=== CAND_IFVG_AGE_60 ===
+  [1200/1372] CAND_IFVG_AGE_60 2024-07-01 (elapsed 258.0s, ETA 37.0s)
+  [1250/1372] CAND_IFVG_AGE_60 2025-12-02 (elapsed 267.8s, ETA 26.1s)
+
+=== ALPHA_STACK ===
+  [1300/1372] ALPHA_STACK 2024-07-16 (elapsed 277.0s, ETA 15.3s)
+  [1350/1372] ALPHA_STACK 2025-12-24 (elapsed 286.3s, ETA 4.7s)
+
+All backtests done in 291.3s (0.212s per backtest)
+Per-day CSV: C:\coding\gmma_guppy_ict\ict_tier_v2\notebooks\alpha_v2_per_day.csv
+
+Summary CSV: C:\coding\gmma_guppy_ict\ict_tier_v2\notebooks\alpha_v2_summary.csv
+
+====================================================================================================
+ALPHA V2 — PER-CONFIG SUMMARY
+====================================================================================================
+config                    trades   EV/trade    PnL/day  tr/day  fills  sigs  soft inv_tr
+----------------------------------------------------------------------------------------------------
+DROP_D_HUNT                 1571 $  +0.0087 $    +0.14    16.0   1571   809   137      0
+BIAS_GATE                   3016 $  -0.0541 $    -1.66    30.8   3016  1165  2122      0
+INV_TRADE                   6984 $  -0.0377 $    -2.69    71.3   6984  2357  4814    824
+CAND_IFVG_AGE_60            5804 $  -0.0516 $    -3.06    59.2   5804  2238  3956      0
+CAND_BODY_ONLY_INV          6121 $  -0.0511 $    -3.19    62.5   6121  2346  4180      0
+BOS_BOOST_ONLY              6160 $  -0.0519 $    -3.26    62.9   6160  2357  4285      0
+CAND_BODY_ONLY_MIT          6160 $  -0.0520 $    -3.27    62.9   6160  2346  4284      0
+BASELINE                    6160 $  -0.0521 $    -3.27    62.9   6160  2357  4284      0
+DROP_INVERTED_OFF           6160 $  -0.0521 $    -3.27    62.9   6160  2357  4284      0
+NO_RETEST_REQ               6071 $  -0.0537 $    -3.33    61.9   6071  2356  4405      0
+ALPHA_STACK                 5163 $  -0.0687 $    -3.62    52.7   5163  1915  3506      0
+CAND_DISP15                 5444 $  -0.0697 $    -3.87    55.6   5444  2009  3802      0
+CAND_DISPLACE               5220 $  -0.0812 $    -4.33    53.3   5220  1886  3737      0
+NO_SUPERSEDE               54423 $  -0.1079 $   -59.94   555.3  54423 18621 46289      0
+
+Delta-PnL vs BASELINE ($-320.88 total over 98 days):
+  baseline trades=6160, EV/trade=$-0.0521
+  DROP_D_HUNT              dPnL/day=$+3.41, dtrades=-4589
+  BIAS_GATE                dPnL/day=$+1.61, dtrades=-3144
+  INV_TRADE                dPnL/day=$+0.59, dtrades=+824
+  CAND_IFVG_AGE_60         dPnL/day=$+0.22, dtrades=-356
+  CAND_BODY_ONLY_INV       dPnL/day=$+0.08, dtrades=-39
+  BOS_BOOST_ONLY           dPnL/day=$+0.01, dtrades=+0
+  CAND_BODY_ONLY_MIT       dPnL/day=$+0.01, dtrades=+0
+  DROP_INVERTED_OFF        dPnL/day=$+0.00, dtrades=+0
+  NO_RETEST_REQ            dPnL/day=$-0.05, dtrades=-89
+  ALPHA_STACK              dPnL/day=$-0.34, dtrades=-997
+  CAND_DISP15              dPnL/day=$-0.60, dtrades=-716
+  CAND_DISPLACE            dPnL/day=$-1.05, dtrades=-940
+  NO_SUPERSEDE             dPnL/day=$-56.67, dtrades=+48263
