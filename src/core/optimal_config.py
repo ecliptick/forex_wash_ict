@@ -103,7 +103,7 @@ _log = _logging.getLogger(__name__)
 # Bump this whenever the canonical recipe changes so downstream
 # code can detect "I'm running an outdated config". Format:
 # "v<N>-<recipe-name>-<YYYY-MM-DD>" — last touched 2026-09-17.
-OPTIMAL_RECIPE_VERSION: str = "v7-sniper-2026-09-17"
+OPTIMAL_RECIPE_VERSION: str = "v17-sniper-2026-09-18"
 
 
 # Knobs that are part of the v7 recipe's "do not touch" list.
@@ -130,6 +130,7 @@ _RECIPE_KNOBS = frozenset({
     "sl_usd",
     "tp_usd",
     "lots",
+    "contract_size",
     "fvg_require_retest_to_invert",
     "fvg_invalidation_min_pierce_usd",
     "fvg_invalidation_min_consecutive_bars",
@@ -180,6 +181,7 @@ def _build_v7_sniper() -> TrendStrategyParams:
         sl_usd=0.80,
         tp_usd=1.80,
         lots=0.01,
+        contract_size=100.0,                 # XAUUSD: 1 lot = 100 oz. BTC uses 0.001.
         fvg_require_retest_to_invert=True,
         fvg_invalidation_min_pierce_usd=0.05,
         fvg_invalidation_min_consecutive_bars=2,
@@ -192,9 +194,9 @@ def _build_v7_sniper() -> TrendStrategyParams:
         bos_choch_ignore_invert_when_aligned=True,
         bos_choch_memory_n_events=5,
         fvg_min_lifetime_secs=3,            # v6 winner (still relevant)
-        # ── v7 SNIPER mode (Innovation #1, 2026-09-17) ──
+        # ── v17 SNIPER mode (SL widened 2026-09-18) ──
         entry_mode="sniper",                 # KEY CHANGE: skip FVG entry, wait for inversion
-        fvg_inv_trade_sl_zone_mult=1.0,      # SL = 1× zone width (unchanged)
+        fvg_inv_trade_sl_zone_mult=2.0,      # SL = 2× zone width (v16a full-corpus validated)
         fvg_inv_trade_tp_zone_mult=22.0,     # TP = 22× zone width (peak from sweep)
         fvg_inv_trade_min_zone_usd=0.30,     # min zone width (unchanged)
         fvg_inv_trade_max_per_zone=1,        # one inverse trade per zone

@@ -1138,6 +1138,17 @@ def run_ict_backtest(
                         n_sniper_cancelled += 1
                         continue
                     sniper_zone_count[zid] = n_so_far + 1
+                    # The entry direction is opposite the signal direction.
+                    # The retest scanner already flips for inverted zones
+                    # (d = -z.direction if z.inverted), so an ifvg signal
+                    # already carries the "trade the inversion" direction.
+                    # Flipping once here gives: fvg signal -> SHORT (correct
+                    # reversal), ifvg signal -> LONG (correct continuation).
+                    # This is the patient sniper: wait for the inversion to
+                    # resolve, then enter in the SAME direction as the
+                    # original FVG. The hypothesis: the inversion was a
+                    # liquidity sweep, the original thesis survives, enter
+                    # on the retest of the now-inverted zone.
                     inv_dir = -int(sp["direction"])
                     # TP choice: ATR-scaled when ``sniper_tp_atr_mult > 0``,
                     # otherwise zone-width-scaled. Both are known at
@@ -1761,8 +1772,12 @@ def _close_trade(
     tr.exit_reason = reason
     if tr.entry_time > 0:
         tr.hold_secs = (b_time - tr.entry_time) / 1e9
+    # PnL = signed price move × lots × contract_size
+    # Default contract_size=100.0 = XAUUSD (1 lot = 100 oz, $1 move = $100/lot).
+    # For BTC Binance perps set contract_size=0.001 (1 lot = 0.001 BTC).
+    contract_size = float(getattr(p, "contract_size", 100.0))
     if tr.direction > 0:
-        tr.pnl_usd = (tr.exit_price - tr.entry_price) * tr.lots * 100.0  # lots × 100 USD per $1
+        tr.pnl_usd = (tr.exit_price - tr.entry_price) * tr.lots * contract_size
     else:
-        tr.pnl_usd = (tr.entry_price - tr.exit_price) * tr.lots * 100.0
+        tr.pnl_usd = (tr.entry_price - tr.exit_price) * tr.lots * contract_size
     sink.append(tr)

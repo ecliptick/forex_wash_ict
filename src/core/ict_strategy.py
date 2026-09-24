@@ -71,6 +71,12 @@ class TrendStrategyParams:
     sl_usd: float = 0.80
     tp_usd: float = 1.80
     lots: float = 0.01
+    # Contract multiplier: 1.0 lot × 1.0 unit × this = PnL per $1 price move.
+    # Default 100.0 = XAUUSD (1 lot = 100 oz, $1 move = $100/lot).
+    # For BTC at Binance perps use contract_size=0.001 (1 lot = 0.001 BTC,
+    # so 0.01 lots × $1 BTC move = $0.01 PnL).
+    # For BTC if treating 1 lot = 1 BTC use contract_size=1.0.
+    contract_size: float = 100.0
     entry_on: str = "open"            # "open" | "close"
     exit_on: str = "close"            # SL/TP touch evaluated against bar high/low
     # ── Entry mode (added 2026-09-17, v6+ Innovation #1) ───────────────
